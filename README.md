@@ -14,7 +14,7 @@ Asegúrate de tener instalado:
 1. Clona el repositorio:
 
     ```bash
-    git clone [https://github.com/tu-usuario/tu-proyecto.git](https://github.com/diegoaguilera4/BackGestionTareasNEE)
+    git clone https://github.com/diegoaguilera4/BackGestionTareasNEE
     ```
 
 2. Ingresa al directorio del proyecto:
