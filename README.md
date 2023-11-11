@@ -14,13 +14,13 @@ Asegúrate de tener instalado:
 1. Clona el repositorio:
 
     ```bash
-    git clone https://github.com/tu-usuario/tu-proyecto.git
+    git clone [https://github.com/tu-usuario/tu-proyecto.git](https://github.com/diegoaguilera4/BackGestionTareasNEE)
     ```
 
 2. Ingresa al directorio del proyecto:
 
     ```bash
-    cd tu-proyecto
+    cd backend
     ```
 
 3. Instala las dependencias:
@@ -34,4 +34,4 @@ Asegúrate de tener instalado:
 Describe cómo usar tu aplicación o biblioteca. Proporciona ejemplos de comandos o fragmentos de código.
 
 ```bash
-npm start
+npm run dev
