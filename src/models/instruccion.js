@@ -3,7 +3,7 @@ import { Schema } from "mongoose";
 
 const instruccionSchema = new Schema({
     descripcion: { type: String, required: true },
-    estado: { type: Boolean, required: true },
+    estado: { type: String, required: true },
     observacion: { type: String, required: true },
 });
 
