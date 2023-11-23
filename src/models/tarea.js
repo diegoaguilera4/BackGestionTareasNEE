@@ -4,7 +4,7 @@ import { Schema } from "mongoose";
 const tareaSchema = new Schema({
     nombre: { type: String, required: true },
     estado: { type: String, required: true },
-    fechaCreacion: { type: Date},
+    fechaCreacion: { type: Date, default: Date.now },
     imagen: { type: String, required: true },
     asignacion: { type: String, required: true },
     repeticion: { type: String, required: true },

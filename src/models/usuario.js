@@ -6,7 +6,7 @@ const usuarioSchema = new Schema({
     email: { type: String, required: true },
     contrasenia: { type: String, required: true },
     rol: { type: String, required: true },
-    codigosVinculacion: { type: [String], required: true },
+    codigosVinculacion: { type: [String],},
 });
 
 //convertir a modelo de mongoose

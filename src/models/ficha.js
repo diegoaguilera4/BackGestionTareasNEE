@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const embarazoSchema = new Schema({
-    pregunta1: { type: String, required: true },
-    pregunta2: { type: String, required: true },
+    pregunta1: { type: String},
+    pregunta2: { type: String},
 });
 
 const tipoDePartoSchema = new Schema({
-    tipo: { type: String, required: true },
-    observaciones: { type: String, required: true },
+    tipo: { type: String},
+    observaciones: { type: String},
 });
 
 const periodoPerinatalSchema = new Schema({
@@ -50,21 +50,21 @@ const desarrolloDelLenguajeSchema = new Schema({
 });
 
 const identificacionSchema = new Schema({
-    nombre: { type: String, required: true },
-    fechaNacimiento: { type: Date, required: true },
-    edad: { type: Number, required: true },
-    establecimientoEscolar: { type: String, required: true },
-    escolaridad: { type: String, required: true },
-    direccion: { type: String, required: true },
-    telefono: { type: Number, required: true },
-    fechaEntrevista: { type: Date, required: true },
-    asisteCon: { type: String, required: true },
-    derivadoPor: { type: String, required: true },
+    nombre: { type: String},
+    fechaNacimiento: { type: Date},
+    edad: { type: Number},
+    establecimientoEscolar: { type: String},
+    escolaridad: { type: String},
+    direccion: { type: String},
+    telefono: { type: Number},
+    fechaEntrevista: { type: Date },
+    asisteCon: { type: String },
+    derivadoPor: { type: String },
 });
 
 const motivoConsultaSchema = new Schema({
-    motivo: { type: String, required: true },
-    consultasPrevias: { type: String, required: true },
+    motivo: { type: String},
+    consultasPrevias: { type: String},
 });
 
 const descripcionRelacionesFamiliaresSchema = new Schema({
@@ -90,7 +90,7 @@ const fichaSchema = new Schema({
     MotivoConsulta: motivoConsultaSchema,
     HistorialDesarrollo: {
         Embarazo: embarazoSchema,
-        duracionParto: { type: String, required: true },
+        duracionParto: { type: String},
         TipoDeParto: tipoDePartoSchema,
         PeriodoPerinatal: periodoPerinatalSchema,
         RegulacionPrimerosMeses: regulacionPrimerosMesesSchema,

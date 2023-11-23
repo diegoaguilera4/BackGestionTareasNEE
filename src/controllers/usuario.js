@@ -15,8 +15,8 @@ export const agregarUsuario = async (req, res) => {
 //obtener todos los usuarios
 export const obtenerUsuarios = async (req, res) => {
     try {
-        const Usuarios = await Usuario.find();
-        res.status(200).json(Usuarios);
+        const usuarios = await Usuario.find();
+        res.status(200).json(usuarios);
     } catch (error) {
         res.status(500).json({ mensaje: error.message });
     }
@@ -25,8 +25,8 @@ export const obtenerUsuarios = async (req, res) => {
 //obtener un usuario por id
 export const obtenerUsuario = async (req, res) => {
     try {
-        const Usuario = await Usuario.findById(req.params.id);
-        res.status(200).json(Usuario);
+        const usuario = await Usuario.findById(req.params.id);
+        res.status(200).json(usuario);
     } catch (error) {
         res.status(500).json({ mensaje: error.message });
     }
@@ -35,12 +35,12 @@ export const obtenerUsuario = async (req, res) => {
 //actualizar un usuario por id
 export const actualizarUsuario = async (req, res) => {
     try {
-        const Usuario = await Usuario.findByIdAndUpdate(
+        const usuario = await Usuario.findByIdAndUpdate(
             req.params.id,
             req.body,
             { new: true }
         );
-        res.status(200).json(Usuario);
+        res.status(200).json(usuario);
     } catch (error) {
         res.status(500).json({ mensaje: error.message });
     }
@@ -49,8 +49,8 @@ export const actualizarUsuario = async (req, res) => {
 //eliminar un usuario por id
 export const eliminarUsuario = async (req, res) => {
     try {
-        const Usuario = await Usuario.findByIdAndDelete(req.params.id);
-        res.status(200).json(Usuario);
+        const usuario = await Usuario.findByIdAndDelete(req.params.id);
+        res.status(200).json(usuario);
     } catch (error) {
         res.status(500).json({ mensaje: error.message });
     }

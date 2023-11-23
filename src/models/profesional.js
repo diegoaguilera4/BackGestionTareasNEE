@@ -4,7 +4,7 @@ import { Schema } from "mongoose";
 const profesionalSchema = new Schema({
   nombre: { type: String, required: true },
   email: { type: String, required: true },
-  contraseña: { type: String, required: true },
+  contrasenia: { type: String, required: true },
   sesiones: [{ type: Schema.Types.ObjectId, ref: "Sesion"}],
 });
 
