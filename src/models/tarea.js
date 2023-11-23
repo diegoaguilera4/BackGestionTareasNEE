@@ -7,6 +7,7 @@ const tareaSchema = new Schema({
     fechaCreacion: { type: Date},
     imagen: { type: String, required: true },
     asignacion: { type: String, required: true },
+    repeticion: { type: String, required: true },
     instrucciones: [{ type: Schema.Types.ObjectId, ref: 'Instruccion' }],
 });
 
