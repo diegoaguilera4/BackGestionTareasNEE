@@ -5,18 +5,20 @@ import {
     obtenerUsuarios,
     obtenerUsuario,
     actualizarUsuario,
-    eliminarUsuario
+    eliminarUsuario,
+    login,
 } from '../controllers/usuario.js';
 
-const router = express.Router();
+const usuario = express.Router();
 
-router.post('/add', agregarUsuario);
-router.get('/getAll', obtenerUsuarios);
-router.get('/get/:id', obtenerUsuario);
-router.put('/update/:id', actualizarUsuario);
-router.delete('/delete/:id', eliminarUsuario);
+usuario.post('/add', agregarUsuario);
+usuario.get('/getAll', obtenerUsuarios);
+usuario.get('/get/:id', obtenerUsuario);
+usuario.put('/update/:id', actualizarUsuario);
+usuario.delete('/delete/:id', eliminarUsuario);
+usuario.post('/login', login);
 
-export default router;
+export default usuario;
 
 
 

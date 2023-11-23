@@ -4,7 +4,8 @@ import {
     obtenerProfesionales,
     obtenerProfesional,
     actualizarProfesional,
-    eliminarProfesional
+    eliminarProfesional,
+    login
 } from "../controllers/profesional.js";
 
 const profesional = express.Router();
@@ -14,5 +15,6 @@ profesional.get('/getAll', obtenerProfesionales);
 profesional.get('/get/:id', obtenerProfesional);
 profesional.put('/update/:id', actualizarProfesional);
 profesional.delete('/delete/:id', eliminarProfesional);
+profesional.post('/login', login);
 
 export default profesional;
