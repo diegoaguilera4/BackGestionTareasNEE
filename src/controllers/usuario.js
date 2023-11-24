@@ -58,7 +58,7 @@ export const login = async (req, res) => {
         const token = jwt.sign(tokenData, secretKey, { expiresIn: '1h' });
 
         // Devuelve el token en la respuesta
-        res.status(200).json({ status: true, token });
+        res.status(200).json({ status: true, token, "rol":usuario.rol });
     } catch (error) {
         res.status(500).json({ mensaje: error.message });
     }
