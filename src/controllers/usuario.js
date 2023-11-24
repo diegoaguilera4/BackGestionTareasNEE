@@ -53,11 +53,12 @@ export const login = async (req, res) => {
             return res.status(401).json({ mensaje: 'Contraseña incorrecta' });
         }
         const secretKey = process.env.KEY;
+        let tokenData = {usuarioId: usuario._id, email: usuario.email, rol: usuario.rol, nombre: usuario.nombre}
         // En este punto, las credenciales son válidas, genera un token de autenticación
-        const token = jwt.sign({ usuarioId: usuario._id }, secretKey, { expiresIn: '1h' });
+        const token = jwt.sign(tokenData, secretKey, { expiresIn: '1h' });
 
         // Devuelve el token en la respuesta
-        res.status(200).json({ mensaje: 'Inicio de sesión exitoso', token });
+        res.status(200).json({ status: true, token });
     } catch (error) {
         res.status(500).json({ mensaje: error.message });
     }
