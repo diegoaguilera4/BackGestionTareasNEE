@@ -8,7 +8,6 @@ import usuario from './routes/usuario.js';
 import paciente from './routes/paciente.js';
 import instruccion from './routes/instruccion.js';
 import sesion from './routes/sesion.js';
-import profesional from './routes/profesional.js';
 import ficha from './routes/ficha.js';
 
 // Configura dotenv para cargar las variables de entorno desde el archivo .env
@@ -29,7 +28,6 @@ app.use('/usuario', usuario);
 app.use('/paciente', paciente);
 app.use('/instruccion', instruccion);
 app.use('/sesion', sesion);
-app.use('/profesional', profesional);
 app.use('/ficha', ficha);
 
 app.listen(port, () => {
