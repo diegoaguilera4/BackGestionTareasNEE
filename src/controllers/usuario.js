@@ -44,7 +44,7 @@ export const login = async (req, res) => {
 
         // Verifica si el usuario existe
         if (!usuario) {
-            return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+            return res.status(404).json({status: false, mensaje: 'Usuario no encontrado' });
         }
 
         // Verifica la contraseña
@@ -60,7 +60,7 @@ export const login = async (req, res) => {
         // Devuelve el token en la respuesta
         res.status(200).json({ status: true, token, "rol":usuario.rol });
     } catch (error) {
-        res.status(500).json({ mensaje: error.message });
+        res.status(500).json({ status: false , mensaje: error.message});
     }
 };
 
