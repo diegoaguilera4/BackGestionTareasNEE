@@ -35,6 +35,35 @@ export const agregarUsuario = async (req, res) => {
     }
 };
 
+// Agregar paciente a pacientes en usuario
+export const agregarPaciente = async (req, res) => {
+    try {
+        // Obtiene el ID del usuario al que se le agregará el paciente
+        const userId = req.params.id;
+
+        // Busca al usuario por ID en la base de datos
+        const usuario = await Usuario.findById(userId);
+
+        // Verifica si el usuario existe
+        if (!usuario) {
+            return res.status(404).json({status: false, mensaje: 'Usuario no encontrado' });
+        }
+
+        // Obtiene el ID del paciente del cuerpo de la solicitud
+        const nuevoPacienteId = req.body.pacienteId;
+
+        // Agrega el ID del nuevo paciente al arreglo de pacientes del usuario
+        usuario.pacientes.push(nuevoPacienteId);
+
+        // Guarda el usuario actualizado en la base de datos
+        await usuario.save();
+
+        res.status(200).json(usuario);
+    } catch (error) {
+        res.status(500).json({ mensaje: error.message });
+    }
+};
+
 export const login = async (req, res) => {
     const { email, contrasenia } = req.body;
 
@@ -77,7 +106,7 @@ export const obtenerUsuarios = async (req, res) => {
 //obtener un usuario por id
 export const obtenerUsuario = async (req, res) => {
     try {
-        const usuario = await Usuario.findById(req.params.id);
+        const usuario = await Usuario.findById(req.body.id);
         res.status(200).json(usuario);
     } catch (error) {
         res.status(500).json({ mensaje: error.message });

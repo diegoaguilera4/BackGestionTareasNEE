@@ -7,6 +7,7 @@ const usuarioSchema = new Schema({
     contrasenia: { type: String, required: true },
     rol: { type: String, required: true },
     codigosVinculacion: { type: [String],},
+    pacientes: [{ type: Schema.Types.ObjectId, ref: "Paciente"}],
     sesiones: [{ type: Schema.Types.ObjectId, ref: "Sesion"}],
 });
 
