@@ -95,6 +95,17 @@ export const login = async (req, res) => {
 };
 
 //obtener todos los usuarios
+export const obtenerMisPacientes = async (req, res) => {
+    try {
+        const usuario = await Usuario.findById(req.params.id).populate({path: "pacientes", select: "nombre rut"});
+        const pacientes = usuario.pacientes;
+        res.status(200).json(pacientes);
+    } catch (error) {
+        res.status(500).json({ mensaje: error.message });
+    }
+}
+
+//obtener todos los usuarios
 export const obtenerUsuarios = async (req, res) => {
     try {
         const usuarios = await Usuario.find();

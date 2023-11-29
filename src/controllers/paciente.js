@@ -23,30 +23,6 @@ export const agregarPaciente = async (req, res) => {
     }
 };
 
-// Obtener detalles de pacientes por IDs
-export const obtenerVariosPacientes = async (req, res) => {
-    try {
-        const pacientesIds = req.body.pacientesIds;
-
-        // Buscar todos los pacientes cuyos IDs estén en el arreglo pacientesIds
-        const pacientes = await Promise.all(
-            pacientesIds.map(async (pacienteId) => {
-                const paciente = await Paciente.findById(pacienteId);
-                // Aquí podrías personalizar los datos que deseas devolver para cada paciente
-                return {
-                    _id: paciente._id,
-                    nombre: paciente.nombre,
-                    rut: paciente.rut,
-                    // Agrega más campos según tus necesidades
-                };
-            })
-        );
-
-        res.status(200).json(pacientes);
-    } catch (error) {
-        res.status(500).json({ mensaje: error.message });
-    }
-};
 
 // Función para generar un código de vinculación único
 function generarCodigoVinculacion() {
