@@ -1,5 +1,4 @@
 import Usuario from '../models/usuario.js';
-import Paciente from '../models/paciente.js';
 import miDB from "../db/index.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -65,31 +64,6 @@ export const agregarPaciente = async (req, res) => {
     }
 };
 
-// Obtener detalles de pacientes por IDs
-export const obtenerPacientes = async (req, res) => {
-    try {
-        const pacientesIds = req.body.pacientesIds;
-
-        // Buscar todos los pacientes cuyos IDs estén en el arreglo pacientesIds
-        const pacientes = await Promise.all(
-            pacientesIds.map(async (pacienteId) => {
-                const paciente = await Paciente.findById(pacienteId);
-                // Aquí podrías personalizar los datos que deseas devolver para cada paciente
-                return {
-                    _id: paciente._id,
-                    nombre: paciente.nombre,
-                    rut: paciente.rut,
-                    // Agrega más campos según tus necesidades
-                };
-            })
-        );
-
-        res.status(200).json(pacientes);
-    } catch (error) {
-        res.status(500).json({ mensaje: error.message });
-    }
-};
-
 
 export const login = async (req, res) => {
     const { email, contrasenia } = req.body;
@@ -109,7 +83,7 @@ export const login = async (req, res) => {
             return res.status(401).json({ mensaje: 'Contraseña incorrecta' });
         }
         const secretKey = process.env.KEY;
-        let tokenData = {usuarioId: usuario._id, email: usuario.email, rol: usuario.rol, nombre: usuario.nombre, pacientes: usuario.pacientes, todo: usuario}
+        let tokenData = {usuarioId: usuario._id, email: usuario.email, rol: usuario.rol, nombre: usuario.nombre, pacientes: usuario.pacientes}
         // En este punto, las credenciales son válidas, genera un token de autenticación
         const token = jwt.sign(tokenData, secretKey, { expiresIn: '1h' });
 
@@ -133,7 +107,7 @@ export const obtenerUsuarios = async (req, res) => {
 //obtener un usuario por id
 export const obtenerUsuario = async (req, res) => {
     try {
-        const usuario = await Usuario.findById(req.body.id);
+        const usuario = await Usuario.findById(req.params.id);
         res.status(200).json(usuario);
     } catch (error) {
         res.status(500).json({ mensaje: error.message });
