@@ -115,15 +115,42 @@ export const obtenerUsuarios = async (req, res) => {
     }
 }
 
-//obtener un usuario por id
+// Obtener un usuario por ID
 export const obtenerUsuario = async (req, res) => {
     try {
         const usuario = await Usuario.findById(req.params.id);
-        res.status(200).json(usuario);
+
+        if (!usuario) {
+            // Si no se encuentra el usuario, devolver un código 200 y un mensaje indicando que no se encontró el usuario
+            res.status(200).json({ encontrado: false, mensaje: 'Usuario no encontrado' });
+            return;
+        }
+
+        // Si se encuentra el usuario, devolver un código 200 y un objeto JSON con la información del usuario
+        res.status(200).json({ encontrado: true, usuario });
     } catch (error) {
         res.status(500).json({ mensaje: error.message });
     }
 }
+
+export const obtenerUsuarioPorEmail = async (req, res) => {
+    try {
+        const usuario = await Usuario.findOne({ email: req.params.email });
+
+        if (!usuario) {
+            // Si no se encuentra el usuario, devolver un código 200 y un mensaje indicando que no se encontró el usuario
+            res.status(200).json({ encontrado: false, mensaje: 'Usuario no encontrado' });
+            return;
+        }
+
+        // Si se encuentra el usuario, devolver un código 200 y un objeto JSON con la información del usuario
+        res.status(200).json({ encontrado: true, usuario });
+    } catch (error) {
+        // Cambiar el código de estado a 500 en caso de un error interno del servidor
+        res.status(500).json({ encontrado: false, mensaje: error.message });
+    }
+}
+
 
 //actualizar un usuario por id
 export const actualizarUsuario = async (req, res) => {

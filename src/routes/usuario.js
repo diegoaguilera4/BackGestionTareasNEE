@@ -9,6 +9,7 @@ import {
     login,
     agregarPaciente,
     obtenerMisPacientes,
+    obtenerUsuarioPorEmail
 } from '../controllers/usuario.js';
 
 const usuario = express.Router();
@@ -18,6 +19,7 @@ usuario.post('/addPaciente/:id', agregarPaciente);
 usuario.get('/getAll', obtenerUsuarios);
 usuario.get('/getMisPacientes/:id', obtenerMisPacientes);
 usuario.get('/get/:id', obtenerUsuario);
+usuario.get('/getByEmail/:email', obtenerUsuarioPorEmail);
 usuario.put('/update/:id', actualizarUsuario);
 usuario.delete('/delete/:id', eliminarUsuario);
 usuario.post('/login', login);
