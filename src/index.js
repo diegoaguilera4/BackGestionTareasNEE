@@ -6,7 +6,6 @@ import router from './routes/index.js';
 import tarea from './routes/tarea.js';
 import usuario from './routes/usuario.js';
 import paciente from './routes/paciente.js';
-import instruccion from './routes/instruccion.js';
 import sesion from './routes/sesion.js';
 import ficha from './routes/ficha.js';
 
@@ -26,7 +25,6 @@ app.use('/', router);
 app.use('/tarea', tarea);
 app.use('/usuario', usuario);
 app.use('/paciente', paciente);
-app.use('/instruccion', instruccion);
 app.use('/sesion', sesion);
 app.use('/ficha', ficha);
 

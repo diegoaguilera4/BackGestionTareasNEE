@@ -8,8 +8,13 @@ const tareaSchema = new Schema({
     imagen: { type: String, required: true },
     asignacion: { type: String, required: true },
     repeticion: { type: String, required: true },
-    instrucciones: [{ type: Schema.Types.ObjectId, ref: 'Instruccion' }],
+    instrucciones: [{
+        descripcion: { type: String, required: true },
+        estado: { type: Boolean, default: false },
+        observacion: { type: String, default: "" },
+    }],
 });
+
 
 //convertir a modelo de mongoose
 const Tarea = mongoose.model("Tarea", tareaSchema);
