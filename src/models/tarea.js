@@ -11,8 +11,8 @@ const tareaSchema = new Schema({
     instrucciones: [{
         descripcion: { type: String, required: true },
         estado: { type: Boolean, default: false },
-        observacion: { type: String, default: "" },
     }],
+    observacion: { type: String, default: "" },
 });
 
 
