@@ -6,9 +6,7 @@ const usuarioSchema = new Schema({
     email: { type: String, required: true, unique: true },
     contrasenia: { type: String, required: true },
     rol: { type: String, required: true },
-    codigosVinculacion: { type: [String],},
     pacientes: [{ type: Schema.Types.ObjectId, ref: "Paciente"}],
-    sesiones: [{ type: Schema.Types.ObjectId, ref: "Sesion"}],
 });
 
 //convertir a modelo de mongoose
