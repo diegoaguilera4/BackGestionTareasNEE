@@ -1,13 +1,10 @@
 import Paciente from "../models/paciente.js";
 import miDB from "../db/index.js";
-import crypto from 'crypto';
 
 
 export const agregarPaciente = async (req, res) => {
     try {
-        // Generar un código de vinculación único
 
-        // Crear el objeto paciente con el código de vinculación generado
         const paciente = new Paciente(req.body);
 
         // Guardar el paciente en la base de datos
